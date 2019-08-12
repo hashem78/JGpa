@@ -2,9 +2,21 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QMessageBox>
+#include <QFileDialog>
 #include <vector>
+#include <iostream>
+#include <fstream>
+#include <ostream>
+#include <istream>
+#include <QtDebug>
+
+#include <utility>
+
+
 extern std::vector< std::pair<double,QString> > marks;
 extern std::vector <int> credits;
+extern double credit_sum;
 
 namespace Ui {
 class MainWindow;
@@ -25,8 +37,13 @@ private slots:
 
     void on_gpa_button_clicked();
 
+    void on_actionSave_triggered();
+
+    void on_actionLoad_triggered();
+
 private:
     Ui::MainWindow *ui;
+    double calculateMark();
 };
 
 #endif // MAINWINDOW_H
